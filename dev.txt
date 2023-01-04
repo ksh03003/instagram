@@ -1,0 +1,86 @@
+#1
+1. 벡앤드 서비스: api
+2. 서버는 모든 서비스의 근간
+3. 웹 프레임워크: 웹 서비스들을 만들때마다 반복되는 것을 표준화하여 묶어놓은 것
+
+4. 장고 구성: MVC
+모델: SQL 쿼리 생성 및 수행
+뷰: 장고 템플릿
+컨트롤러: 클라이언트의 요청 처리
+
+
+
+#2
+1. 웹 애플리케이션에서는 페이지가 변하지 않고 부분업데이트만 발생한다.
+2. 리액트: 상호작용이 많은 ui에 적합함
+3. 아나콘다 설치
+4. 가상환경 설정
+$ conda create --name askcompany python=3.9
+
+5. 가상환경 설치시 : Collecting package metadata (current_repodata.json): failed
+
+해결링크: https://github.com/conda/conda/issues/11982
+
+6. CommandNotFoundError: Your shell has not been properly configured to use 'conda activate'. 오류
+
+우선 cmd 대신 anaconda prompt 사용
+참조링크: https://koreapy.tistory.com/1450
+
+7. $ C:\Users\gram17>pip install "django~=3.0.0" : 가상환경 진입 후 장고설치
+
+8. $ django-admin --version : 장고 버전 확인
+
+9. C드라이브 최상위 경로에 dev 폴더 생성
+
+10. $ django-admin startproject askcompany : askcompany  프로젝트 생성
+
+11. 상위 프로젝트 폴더 askcompany의 경우 다른 이름으로 변경해도 되나
+하위 프로젝트 폴더는 참조하고 있는 코드 때문에 변경하면 안됨
+
+12. 기본템플릿: django/conf/project_template
+
+13. 프로젝트 초기화 작업 및 개발서버 구동
+$ python manage.py migrate
+$ python manage.py createsuperuser
+	-username: chaewon / email: ksh03003@naver.com / pw: a6
+$ python manage.py runserver
+
+http://127.0.0.1:8000/ 구동확인
+
+14. admin 에서 users 탭을 통해 새로운 유저를 만들고 권한을 부여할 수 있다.
+
+
+#4
+1. extension에서 python 추가
+2. select interpreter 명령어로 인터프리터 conda로 설정
+3. vs code에서 new terminal에서 알아서 activate가 걸림
+
+#5
+1. 장고기능
+	1) function view: http 요청처리 함수 지원
+	2) modeling: DB 인터페이스 지원
+	3) admin: 관리자 ui 지원
+	4) logging: 메시지 로깅 기능
+	5) 정적파일관리 기능
+	6) 1회성 메시지 기능 지원
+	7) fomrs: 입력폼 생성 및 유효성 검사, DB 저장
+	8) 테스팅
+	9) 국제 지역화
+	10) 캐싱
+	11) 이메일 전송 기능
+	12) RSS/Atom
+
+2. 장고의 기본 앱: admin, auth, session, staticfiles 등의 app을 통해 수월한 웹개발 가능
+
+
+# 6
+1. 앱:
+	- 프로젝트의 기능을 다른 프로젝트에서 사용하기 위한 것
+	- 앱은 하나의 작은 서비스로 재 사용성을 목적으로 둠
+	- installed_app 항목에 등록해야함
+2. $ python manage.py startapp blog1
+
+#7
+1. ORM이란? : 데이터 베이스에 쿼리하기 위한 언어로 SQL보다 높은 성능을 낸다.
+2. ORM코드에서 어떤  SQL이 실행되는지 파악 > 장고 툴바 활용
+3. 
