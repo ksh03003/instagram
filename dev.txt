@@ -54,6 +54,8 @@ http://127.0.0.1:8000/ 구동확인
 1. extension에서 python 추가
 2. select interpreter 명령어로 인터프리터 conda로 설정
 3. vs code에서 new terminal에서 알아서 activate가 걸림
+4. cmd를 기본 터미널로 하면 알아서 activate가 걸림
+
 
 #5
 1. 장고기능
@@ -78,9 +80,28 @@ http://127.0.0.1:8000/ 구동확인
 	- 프로젝트의 기능을 다른 프로젝트에서 사용하기 위한 것
 	- 앱은 하나의 작은 서비스로 재 사용성을 목적으로 둠
 	- installed_app 항목에 등록해야함
-2. $ python manage.py startapp blog1
+2. 가상환경 진입
+	1) conda init
+	2) 경로에서 $ conda env list: 가상환경 리스트 확인
+	3) $ conda activate [가상환경명]
 
-#7
+
+#7 app 생성
+1. $ python manage.py startapp blog1
+2. app 생성 후 필히 settings.INSTALLED_APPS에 등록
+3. model 생성
+4. $ python manage.py makemigrations blog1
+5. $ python manage.py migrate blog1
+6. 실제 데이터 베이스에 반영됨
+7. 
+from .models import [모델명]
+admin.site.register([모델명])
+코드 작성을 통해 admin에서 관리할 수 있다.
+8. askcompany/urls.py 에서 blog1 url 추가
+9. blog1 밑에 templates/blog1/템플릿 파일 추가
+10. views.py, urls.py 수정
+
+#8
 1. ORM이란? : 데이터 베이스에 쿼리하기 위한 언어로 SQL보다 높은 성능을 낸다.
 2. ORM코드에서 어떤  SQL이 실행되는지 파악 > 장고 툴바 활용
 3. 
